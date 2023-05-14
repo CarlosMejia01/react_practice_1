@@ -1,5 +1,5 @@
-let name = 'Pepe';
-name = 'Andres';
+let firstname = 'Pepe';
+firstname = 'Andres';
 
 const lastname = 'Doe';
 // lastname = 'Roe'; // Error constant
@@ -9,4 +9,4 @@ if(condition) {
     const lastname = 'Ale';
     console.log(lastname)
 }
-console.log("Hello World!!! " + name + " ", + lastname); 
+console.log(`Hello World!!!  ${firstname} ${lastname}`); 
