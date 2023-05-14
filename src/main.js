@@ -1,12 +1,8 @@
-let firstname = 'Pepe';
-firstname = 'Andres';
-
-const lastname = 'Doe';
-// lastname = 'Roe'; // Error constant
-let condition = true;
-
-if(condition) {
-    const lastname = 'Ale';
-    console.log(lastname)
+function sayHello(name = 'Pepe', age = 0) {
+    const greeting = `Hellow world! Function ${name} edad ${age}`;
+    // console.log('Hellow world! Function')
+    return greeting;
 }
-console.log(`Hello World!!!  ${firstname} ${lastname}`); 
+
+const result = sayHello('Andres', 10);
+console.log(result);
