@@ -1,10 +1,10 @@
 
-export const papper = {
+const papper = {
 	product: "paper",
 	price: 100,
 	quantity: 10,
 };
-export const invoices = [
+const invoices = [
 	{
 		id: 1,
 		name: "Office shopping",
@@ -71,9 +71,29 @@ export const invoices = [
 
 //Export default
 //Only one export default
-export default (clientName) => invoices.filter((i) => i.client.name === clientName);
+const invoiceByClientName = (clientName) => invoices.filter((i) => i.client.name === clientName);
 
-// export {
-//     papper,
-//     invoices as default,
-// }
+const invoiceById = (id) => invoices.find((i) => i.id === id);
+
+const findInvoiceById = (id) => {
+	const promise = new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const result = invoiceById(id);
+			if (result) {
+				resolve(result);
+			} else {
+				reject("error: the invoice does not exists");
+			}
+			// console.log(result);
+		}, 2500);
+	});
+    return promise;
+};
+
+export {
+    papper,
+    invoices as default,
+	invoiceByClientName,
+	invoiceById,
+	findInvoiceById
+}
