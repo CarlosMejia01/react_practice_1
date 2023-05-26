@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
 //prop, deafult value
-export const HelloWorld = ({ user, id, title = "Hello World" }) => {
+export const HelloWorld = ({ user, id, title = "Hello World", book }) => {
     console.log(title);
     // const name = 'Pepe';
     return (
@@ -9,6 +9,7 @@ export const HelloWorld = ({ user, id, title = "Hello World" }) => {
         <>
             <div>{title}</div>
             <div>Hello World! {user.name} {user.lastname} with id {id + 10}</div>
+            <div>{book}</div>
         </>
     )
 };
@@ -18,4 +19,9 @@ HelloWorld.propTypes = {
     title: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     user: PropTypes.object.isRequired,
-}
+};
+
+HelloWorld.defaultProps = {
+    title: 'Hello world default!',
+    book: 'UML'
+};

@@ -7,7 +7,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <HelloWorld
       user={{ name: 'Pepe', lastname: 'Doe' }}
       id={1}
-      title='Hello World'
+      // title='Hello World'
       />
   </React.StrictMode>,
 )
