@@ -1,10 +1,12 @@
-export const HelloWorld = ({ user, id }) => {
+//prop, deafult value
+export const HelloWorld = ({ user, id, title = "Hello World" }) => {
+    console.log(title);
     // const name = 'Pepe';
     return (
         //Fragment-dont show in the DOM
         <>
-            <div>Hello World!</div>
-            <div>Hello World! {user} with id {id}</div>
+            <div>{title}</div>
+            <div>Hello World! {user.name} {user.lastname} with id {id + 10}</div>
         </>
     )
-}
+};
