@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 //prop, deafult value
 export const HelloWorld = ({ user, id, title = "Hello World" }) => {
     console.log(title);
@@ -10,3 +12,10 @@ export const HelloWorld = ({ user, id, title = "Hello World" }) => {
         </>
     )
 };
+
+//proptypes
+HelloWorld.propTypes = {
+    title: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    user: PropTypes.object.isRequired,
+}
