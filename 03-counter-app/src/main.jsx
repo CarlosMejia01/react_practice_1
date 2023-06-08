@@ -4,6 +4,6 @@ import { CounterApp } from './CounterApp'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CounterApp />
+    <CounterApp  value={5}/>
   </React.StrictMode>,
 )

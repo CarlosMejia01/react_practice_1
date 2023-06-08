@@ -1,11 +1,13 @@
-export const CounterApp = () => {
-  let counter = 0;
-  const counterIncrement = () => {
-    counter++;
-    console.log('click!' + counter);
-  }
+import { useState } from "react";
+
+export const CounterApp = ({value}) => {
+  const [counter, setCounter] = useState(value);
+
+  const counterIncrement = () => setCounter(c => c + 1);
+
+
   return <>
-    <h2>The counter value is { counter }</h2>
-    <button onClick={() => { counterIncrement() }} >Increment counter +1</button>
+    <h2>The counter value is {counter}</h2>
+    <button onClick={counterIncrement} >Increment counter +1</button>
   </>
 }
