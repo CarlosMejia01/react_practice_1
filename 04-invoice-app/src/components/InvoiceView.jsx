@@ -1,6 +1,6 @@
  import PropTypes from 'prop-types';
  
-export const InvocieView = ({id, name}) => {
+export const InvoiceView = ({id, name}) => {
     return (
         <>
                         <ul className="list-group">
@@ -11,7 +11,7 @@ export const InvocieView = ({id, name}) => {
     )
 }
 
-InvocieView.propTypes = {
+InvoiceView.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
 };
