@@ -1,5 +1,5 @@
 export const invoice = {
-	id: 10,
+	id: 0,
 	name: "PC Components",
 	client: {
 		name: "Pepe",
