@@ -29,6 +29,8 @@ const invoiceInitial = {
 };
 export const InvoiceApp = () => {
 
+    const [activeForm, setActiveForm] = useState(false);
+
     const [total, setTotal] = useState(0);
 
     const [invoice, setInvoice] = useState(invoiceInitial);
@@ -49,10 +51,14 @@ export const InvoiceApp = () => {
         setItems(data.items);
     }, []);
 
-    const handlerAddItems = ({product, price, quantity}) => {
+    const handlerAddItems = ({ product, price, quantity }) => {
         setItems([...items, { id: counter, product: product.trim(), price: parseInt(price.trim(), 10), quantity: parseInt(quantity.trim(), 10) }]);
         setCounter(counter + 1);
     }
+
+    const onActiveForm = () => {
+        setActiveForm(!activeForm);
+    };
 
 
     return (
@@ -76,7 +82,8 @@ export const InvoiceApp = () => {
                         </div>
                         <ListItemsView title="Invoice products" items={items} />
                         <TotalView total={total} />
-                        <FormsItemsView handler={ handlerAddItems }/>
+                        <button className="btn btn-secondary" onClick={onActiveForm}>{ !activeForm? 'Add item' : 'Hide Item'}</button>
+                        {!activeForm || <FormsItemsView handler={handlerAddItems} />}
                     </div>
                 </div>
             </div>

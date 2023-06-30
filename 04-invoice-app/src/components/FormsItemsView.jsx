@@ -48,7 +48,7 @@ export const FormsItemsView = ({ handler }) => {
                 <input type="text" name="product" placeholder="Product" value={product} className="form-control m-3" onChange={onInputChange} />
                 <input type="text" name="price" placeholder="Price" value={price} className="form-control m-3" onChange={onInputChange} />
                 <input type="text" name="quantity" placeholder="Quantity" value={quantity} className="form-control m-3" onChange={onInputChange} />
-                <button type="submit" className="btn btn-primary m-3">Nuevo item</button>
+                <button type="submit" className="btn btn-primary m-3">New item</button>
             </form>
         </>
     )
