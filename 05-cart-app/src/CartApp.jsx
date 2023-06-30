@@ -31,7 +31,7 @@ export const CartApp = () => {
                         i.quantity = i.quantity + 1;
                     }
                     return i;
-                })
+                }),
             );
         } else {
             setCartItems([
@@ -50,7 +50,7 @@ export const CartApp = () => {
     };
     return (
         <>
-            <div className="container">
+            <div className="container my-4">
                 <h1>Cart App</h1>
                 <CatalogView handler={handlerAddProductCart} />
                 {cartItems?.length <= 0 || 
