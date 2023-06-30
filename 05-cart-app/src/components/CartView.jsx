@@ -1,4 +1,7 @@
-export const CartView = ({ items }) => {
+export const CartView = ({ items, handlerDelete }) => {
+  const onDeleteProduct = (id) => {
+    handlerDelete(id);
+  };
   return (
     <>
       <h3>Shopping Cart</h3>
@@ -19,7 +22,9 @@ export const CartView = ({ items }) => {
               <td>{item.product.price}</td>
               <td>{item.quantity}</td>
               <td>{item.quantity * item.product.price}</td>
-              <td>Delete</td>
+              <td><button
+                className="btn btn-danger"
+                onClick={() => onDeleteProduct(item.product.id)}>Delete</button></td>
             </tr>
           ))}
         </tbody>
