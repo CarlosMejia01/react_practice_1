@@ -35,8 +35,7 @@ export const useUsers = () => {
 				: "The user has successfully updated",
 			"success"
 		);
-		setVisibleForm(false);
-		setUserSelected(initialUserForm);
+		handlerCloseForm();
 	};
 
 	const handlerRemoveUser = (id) => {
@@ -64,6 +63,15 @@ export const useUsers = () => {
 		setVisibleForm(true);
 	};
 
+	const handlerOpenForm = () => {
+		setVisibleForm(true);
+	};
+
+	const handlerCloseForm = () => {
+		setVisibleForm(false);
+		setUserSelected(initialUserForm);
+	};
+
 	return {
 		users,
 		userSelected,
@@ -72,5 +80,7 @@ export const useUsers = () => {
 		handlerAddUser,
 		handlerRemoveUser,
 		handlerUserSelectedForm,
+		handlerOpenForm,
+		handlerCloseForm
 	};
 };

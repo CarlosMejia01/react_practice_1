@@ -8,28 +8,31 @@ export const UsersApp = () => {
         users,
         userSelected,
         initialUserForm,
+        visibleForm,
         handlerAddUser,
         handlerRemoveUser,
-        handlerUserSelectedForm
+        handlerUserSelectedForm,
+        handlerOpenForm,
+        handlerCloseForm,
     } = useUsers();
 
     return (
         <div className="container my-4">
             <h2>Users App</h2>
             <div className="row">
-                <div className="col">
+                {!visibleForm || <div className="col">
                     <UsersForm
                         handlerAddUser={handlerAddUser}
                         initialUserForm={initialUserForm}
                         userSelected={userSelected}
-                    />
-                </div>
+                        handlerCloseForm={handlerCloseForm}
+                    /></div>}
                 <div className="col">
-                    <button
+                    {visibleForm || <button
                         className="btn btn-primary my-2"
-                    >
+                        onClick={handlerOpenForm}>
                         New user
-                    </button>
+                    </button>}
                     {users.length === 0
                         ? <div className="alert alert-warning">No users in the system!</div>
                         : <UsersList
@@ -40,6 +43,6 @@ export const UsersApp = () => {
                     }
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
