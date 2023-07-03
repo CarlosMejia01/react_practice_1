@@ -1,9 +1,16 @@
+import { useEffect } from "react";
 import { useState } from "react";
 
-export const UsersForm = ({ handlerAddUser, initialUserForm }) => {
+export const UsersForm = ({ handlerAddUser, initialUserForm, userSelected }) => {
     const [userForm, setUserForm] = useState(initialUserForm);
 
     const { username, password, email } = userForm;
+
+    useEffect(() => {
+        setUserForm({
+            ...userSelected,
+        });
+    }, [userSelected]);
 
     const onInputChange = ({ target }) => {
         const { name, value } = target;
@@ -26,6 +33,7 @@ export const UsersForm = ({ handlerAddUser, initialUserForm }) => {
         <>
             <form onSubmit={onSubmit}>
                 <input
+                    type="text"
                     className="form-control my-3 m-75"
                     placeholder="Username"
                     name="username"
@@ -33,6 +41,7 @@ export const UsersForm = ({ handlerAddUser, initialUserForm }) => {
                     onChange={onInputChange}
                 />
                 <input
+                    type="password"
                     className="form-control my-3 m-75"
                     placeholder="Password"
                     name="password"
@@ -40,6 +49,7 @@ export const UsersForm = ({ handlerAddUser, initialUserForm }) => {
                     onChange={onInputChange}
                 />
                 <input
+                    type="text"
                     className="form-control my-3 m-75"
                     placeholder="Email"
                     name="email"
