@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export const UsersForm = ({ handlerAddUser, initialUserForm, userSelected }) => {
     const [userForm, setUserForm] = useState(initialUserForm);
@@ -22,7 +23,12 @@ export const UsersForm = ({ handlerAddUser, initialUserForm, userSelected }) => 
     const onSubmit = (event) => {
         event.preventDefault();
         if (!username || (!password && id === 0) || !email) {
-            alert('You must complete the form fields!')
+            Swal.fire(
+                'Validation error',
+                'You must fill in the form',
+                'error'
+            );
+
             return;
         }
         //Save the user form in the user list
