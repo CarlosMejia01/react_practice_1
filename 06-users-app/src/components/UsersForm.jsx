@@ -69,9 +69,13 @@ export const UsersForm = ({ handlerAddUser, initialUserForm, userSelected }) => 
                 />
                 <button
                     className="btn btn-primary"
-                    type="submit"
-                >
+                    type="submit">
                     {id > 0 ? 'Edit' : 'Add'}
+                </button>
+                <button
+                    className="btn btn-primary mx-2"
+                    type="button">
+                    Close
                 </button>
             </form>
         </>

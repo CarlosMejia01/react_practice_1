@@ -13,8 +13,7 @@ export const UserRow = ({ id, username, email, handlerRemoveUser, handlerUserSel
                         id,
                         username,
                         email
-                    })}
-                >
+                    })}>
                     update
                 </button>
             </td>
@@ -22,8 +21,7 @@ export const UserRow = ({ id, username, email, handlerRemoveUser, handlerUserSel
                 <button
                     type="button"
                     className="btn btn-danger btn-sm"
-                    onClick={() => handlerRemoveUser(id)}
-                >
+                    onClick={() => handlerRemoveUser(id)}>
                     remove
                 </button>
             </td>
