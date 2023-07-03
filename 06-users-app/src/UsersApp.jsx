@@ -4,7 +4,7 @@ import { loginReducer } from "./auth/pages/reducers/LoginReducer"
 import { UsersPage } from "./pages/UsersPage"
 import Swal from "sweetalert2"
 
-const initialLogin = {
+const initialLogin = JSON.parse(sessionStorage.getItem('login')) || {
     isAuth: false,
     user: undefined,
 }
@@ -18,6 +18,10 @@ export const UsersApp = () => {
                 type: 'login',
                 payload: user,
             });
+            sessionStorage('login', JSON.stringify({
+                isAuth: true,
+                user
+            }));
         } else {
             Swal.fire(
                 'Login error',
@@ -29,7 +33,6 @@ export const UsersApp = () => {
     return (
         <>
             {login.isAuth
-
                 ? <UsersPage />
                 : <LoginPage handlerLogin={handlerLogin} />
             }
