@@ -4,7 +4,7 @@ import { useState } from "react";
 export const UsersForm = ({ handlerAddUser, initialUserForm, userSelected }) => {
     const [userForm, setUserForm] = useState(initialUserForm);
 
-    const { username, password, email } = userForm;
+    const { id, username, password, email } = userForm;
 
     useEffect(() => {
         setUserForm({
@@ -33,6 +33,11 @@ export const UsersForm = ({ handlerAddUser, initialUserForm, userSelected }) => 
         <>
             <form onSubmit={onSubmit}>
                 <input
+                    type="hidden"
+                    name="id"
+                    value={id}
+                />
+                <input
                     type="text"
                     className="form-control my-3 m-75"
                     placeholder="Username"
@@ -60,7 +65,7 @@ export const UsersForm = ({ handlerAddUser, initialUserForm, userSelected }) => 
                     className="btn btn-primary"
                     type="submit"
                 >
-                    Create user
+                    {id > 0 ? 'Edit' : 'Add'}
                 </button>
             </form>
         </>
