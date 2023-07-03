@@ -4,8 +4,8 @@ import Swal from "sweetalert2";
 const inititalLoginForm = {
     username: '',
     password: ''
-}
-export const LoginPage = () => {
+};
+export const LoginPage = ({ handlerLogin }) => {
     const [loginForm, setLoginForm] = useState(inititalLoginForm);
     const { username, password } = loginForm;
 
@@ -26,17 +26,8 @@ export const LoginPage = () => {
                 'error'
             );
         }
-
         //Login is implemented here
-        if (username === 'admin' && password === '12345') {
-            //handlerLogin();
-        } else {
-            Swal.fire(
-                'Login error',
-                'Invalid username and password',
-                'error'
-            );
-        }
+        handlerLogin({ username, password });
         setLoginForm(inititalLoginForm);
     };
 
@@ -57,8 +48,8 @@ export const LoginPage = () => {
                                 onChange={onInputChange} />
                             <input
                                 className="form-control my-3 w-75"
-                                placeholder="username"
-                                name="username"
+                                placeholder="password"
+                                name="password"
                                 type="password"
                                 value={password}
                                 onChange={onInputChange} />
