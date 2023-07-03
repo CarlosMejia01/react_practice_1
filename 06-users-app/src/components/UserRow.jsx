@@ -1,4 +1,4 @@
-export const UserRow = ({ id, username, email, password, handlerRemoveUser, handlerUserSelectedForm }) => {
+export const UserRow = ({ id, username, email, handlerRemoveUser, handlerUserSelectedForm }) => {
 
     return (
         <tr>
@@ -12,8 +12,7 @@ export const UserRow = ({ id, username, email, password, handlerRemoveUser, hand
                     onClick={() => handlerUserSelectedForm({
                         id,
                         username,
-                        email,
-                        password
+                        email
                     })}
                 >
                     update
