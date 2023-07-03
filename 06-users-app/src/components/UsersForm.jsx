@@ -5,7 +5,7 @@ const initialUserForm = {
     password: '',
     email: ''
 };
-export const UsersForm = () => {
+export const UsersForm = ({ handlerAddUser }) => {
     const [userForm, setUserForm] = useState(initialUserForm);
 
     const { username, password, email } = userForm;
@@ -17,9 +17,19 @@ export const UsersForm = () => {
             [name]: value
         });
     };
+    const onSubmit = (event) => {
+        event.preventDefault();
+        if (!username || !password || !email) {
+            alert('You must complete the form fields!')
+            return;
+        }
+        //Save the user form in the user list
+        handlerAddUser(userForm);
+        setUserForm(initialUserForm);
+    };
     return (
         <>
-            <form action="">
+            <form onSubmit={onSubmit}>
                 <input
                     className="form-control my-3 m-75"
                     placeholder="Username"
